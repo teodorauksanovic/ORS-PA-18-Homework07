@@ -20,11 +20,52 @@
 
 # Write your function here
 
+def brojpojavljivanja(lista):
+
+    t= {}
+    duzina = len(lista)
+    brojjavljanja = 0
+
+    for i in range(duzina):
+
+        if lista[i] not in t:
+
+            for broj in range(i,duzina):
+
+
+                if lista[broj] == lista[i]:
+
+                    brojjavljanja += 1
+
+                dati_broj = lista[i]
+
+                t[dati_broj] = brojjavljanja
+        brojjavljanja=0
+
+    niz = []
+
+    for key in t:
+
+        niz.append(t[key])
+    maximum = niz[0]
+
+    for i in range(len(niz)):
+        if niz[i]  >maximum:
+            maximum=niz[i]
+
+
+    for key in t:
+        if maximum==t[key]:
+            return key
+
 
 
 def main():
-    # Test your function here
+
+    lista = [5,3,2,5,3,2,0,2,8,6]
+    x = brojpojavljivanja(lista)
+
+    print("Broj sa najvise ponavljanja: " +str(x))
     pass
 
-if __name__ == "__main__":
 main()
