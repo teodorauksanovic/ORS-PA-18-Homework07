@@ -16,10 +16,28 @@
 # Write your function here
 
 
+import random
+def funkcija(listn):
+    a = []
+    while len(listn) >= 1:
+        minimum = listn[0]
+        for el in listn:
+            if el < minimum:
+                minimum = el
+
+
+        a.append(minimum)
+        listn.remove(minimum)
+
+    return a
+
 
 def main():
-    # Test your function here
+    listn = []
+    for i in range(0,1000):
+        listn.append(random.randint(0,1000))
+    rd = funkcija(listn)
+    print(rd)
     pass
 
-if __name__ == "__main__":
 main()
